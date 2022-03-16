@@ -1,2 +1,60 @@
+/* takes content size, padding, and border into account when determing size of content */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+}
+
+/* remove margins on typography to keep margins consistent */
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-weight: 300;
+  background-color: #fff;
+  color: #404040;
+  text-align: center;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #404040;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 30px;
+  /* border: 1px solid red; */
+}
+
+.navbar ul {
+  margin: 0 0;
+  color: #fff;
+  list-style: none;
+  font-weight: 700;
+  /* border: 1px solid green; */
+}
+
+.navbar li {
+  /* border: 1px solid blue; */
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+}
+
 #blog-posts-container {
+  padding-top: 40px;
 }
