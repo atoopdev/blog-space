@@ -28,6 +28,14 @@
 </header>
 <body>
 <div id="blog-posts-container"></div>
+<div id="blog-posts-form">
+    <h3>Add a new blog post</h3>
+    <form action="#" method="post" id="blog-post-creator">
+        <input type="text" name="blogTitle" id="title" aria-label="blog title" required placeholder="blog title"><br>
+        <textarea name="postBody" id="post" aria-label="blog post body" rows="8" required placeholder="blog post body"></textarea>
+        <button type="submit" class="btn">Post!</button>
+    </form>
+</div>
     <script src="script.js"></script>
 </body>
 </html>

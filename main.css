@@ -59,3 +59,33 @@ body {
 #blog-posts-container {
   padding: 40px 10px 10px 10px;
 }
+
+#blog-posts-form {
+  padding: 10px 10px 10px 10px;
+}
+
+#blog-post-creator {
+  padding-top: 10px;
+}
+
+.btn {
+  display: block;
+  background-color: #404040;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+  color: #404040;
+  background-color: #fff;
+}
+
+input,
+textarea,
+.btn {
+  width: 80%;
+  padding: 0.25em;
+  margin: 0.5em 0;
+}
