@@ -21,7 +21,7 @@ body {
   font-weight: 300;
   background-color: #fff;
   color: #404040;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .navbar {
@@ -39,15 +39,16 @@ body {
 }
 
 .navbar ul {
-  margin: 0 0;
-  color: #fff;
+  margin: 0;
+  padding: 0 10px;
   list-style: none;
   font-weight: 700;
-  /* border: 1px solid green; */
+  border: 1px solid green;
 }
 
 .navbar li {
-  /* border: 1px solid blue; */
+  color: #fff;
+  border: 1px solid blue;
 }
 
 .navbar a {
@@ -56,5 +57,5 @@ body {
 }
 
 #blog-posts-container {
-  padding-top: 40px;
+  padding: 40px 10px 10px 10px;
 }
