@@ -21,6 +21,15 @@ fetch('https://apis.scrimba.com/jsonplaceholder/posts', {method:"GET"})
     document.getElementById("blog-posts-container").innerHTML = postsArrHTML
 })
 
+document.getElementById("blog-post-creator").addEventListener("submit", event=>{
+    event.preventDefault();
+    console.log("submit")
+    const ourFormData = new FormData(event.target)
+    
+    const blogTitle = ourFormData.get("blogTitle")
+    const blogBody = ourFormData.get("postBody")
+
+})
 // GET - getting data
 // POST - adding new data
 // PUT - Updating existing data
