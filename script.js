@@ -1,25 +1,17 @@
 // ------------ pull filler blog post data -------------
 let postsArray = []
-let postsArrHTML =""
+
 
 function renderPosts(){
-  if(postsArrHTML && blogData){
-    postsArrHTML = `
-    <h3>${blogData.title}</h3>
-        <p>${blogData.body}</p>
-        <hr/>
-    ` + postsArrHTML
-    document.getElementById("blog-posts-container").innerHTML = postsArrHTML
-  }
-  else if(postsArray){
+    let postsArrHTML =""
+  if(postsArray){
     for(let post of postsArray){
-        postsArrHTML +=`
+         postsArrHTML +=`
         <h3>${post.title}</h3>
         <p>${post.body}</p>
         <hr/>
         `
     }
-    console.log(postsArrHTML)
     // output to webpage
     document.getElementById("blog-posts-container").innerHTML = postsArrHTML
   }
@@ -53,6 +45,7 @@ document.getElementById("blog-post-creator").addEventListener("submit", event=>{
         body: blogBody
     }
     console.log("BlogData: ", blogData)
+    postsArray.unshift(blogData)
     renderPosts()
     document.getElementById("blog-post-creator").reset()
 })
