@@ -25,10 +25,13 @@ document.getElementById("blog-post-creator").addEventListener("submit", event=>{
     event.preventDefault();
     console.log("submit")
     const ourFormData = new FormData(event.target)
-    
     const blogTitle = ourFormData.get("blogTitle")
     const blogBody = ourFormData.get("postBody")
-
+    const blogData ={
+        title: blogTitle,
+        body: blogBody
+    }
+    console.log(blogData)
 })
 // GET - getting data
 // POST - adding new data
