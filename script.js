@@ -1,6 +1,9 @@
-// ------------ pull filler blog post data -------------
+
+const htmlForm = document.getElementById("blog-post-creator")
+
 let postsArray = []
 
+// ------------------------- renderPosts() ---------------------
 
 function renderPosts(){
     let postsArrHTML =""
@@ -17,6 +20,7 @@ function renderPosts(){
   }
 }  
 
+// ------------ pull filler blog post data -------------
 
 // fetch is by default a GET request
 // can specify method by adding parameter
@@ -34,7 +38,7 @@ let blogData = {}
 
 // --------- grab submitted form data and post to web page ------------
 
-document.getElementById("blog-post-creator").addEventListener("submit", event=>{
+htmlForm.addEventListener("submit", event=>{
     event.preventDefault();
     console.log("submit")
     const ourFormData = new FormData(event.target)
@@ -45,9 +49,11 @@ document.getElementById("blog-post-creator").addEventListener("submit", event=>{
         body: blogBody
     }
     console.log("BlogData: ", blogData)
+    // add new post data object to beginning of posts array
     postsArray.unshift(blogData)
     renderPosts()
-    document.getElementById("blog-post-creator").reset()
+    // clear form
+    htmlForm.reset()
 })
 
 // ----------------POST Blog Data from Form Submit -----------------
@@ -65,7 +71,7 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts", {
     // will return what you have created as confirmation provided you have included header: content type plus an id database number
     console.log("Posted blog data:", data)})
 
-
+// ------------------------------------------------------------------------
 
 
 // GET - getting data
