@@ -22,6 +22,7 @@ fetch('https://apis.scrimba.com/jsonplaceholder/posts', {method:"GET"})
     document.getElementById("blog-posts-container").innerHTML = postsArrHTML
 })
 
+let blogData = {}
 
 // ------------------ grab submitted form data ------------------------
 
@@ -31,12 +32,31 @@ document.getElementById("blog-post-creator").addEventListener("submit", event=>{
     const ourFormData = new FormData(event.target)
     const blogTitle = ourFormData.get("blogTitle")
     const blogBody = ourFormData.get("postBody")
-    const blogData ={
+    blogData ={
         title: blogTitle,
         body: blogBody
     }
-    console.log(blogData)
+    console.log("BlogData: ", blogData)
 })
+
+// ----------------POST Blog Data from Form Submit -----------------
+
+fetch("https://apis.scrimba.com/jsonplaceholder/posts", {
+    method: "POST",
+    // required so server knows how to parse request
+    headers:{
+        'Content-Type': 'application/json'
+    },
+    body:JSON.stringify(blogData)
+})
+.then(response => response.json())
+.then(data => {
+    // will return what you have created as confirmation provided you have included header: content type plus an id database number
+    console.log("Posted blog data:", data)})
+
+
+
+
 // GET - getting data
 // POST - adding new data
 // PUT - Updating existing data
@@ -47,22 +67,22 @@ document.getElementById("blog-post-creator").addEventListener("submit", event=>{
 // headers - extra meta info about outgoing request
     // auth, body, info, client info, etc
 
-const newPostData = {
-    title: "Testing New To-Do Title",
-    completed: false
-}
-// create a todo list item via POST
-fetch("https://apis.scrimba.com/jsonplaceholder/todos", {
-    method: "POST",
-    // required so server knows how to parse request
-    headers:{
-        'Content-Type': 'application/json'
-    },
-    body:JSON.stringify(newPostData)
-})
-.then(response => response.json())
-.then(data => {
-    // will return what you have created as confirmation provided you have included header: content type plus an id database number
-    console.log("Return data:", data)})
+// const newPostData = {
+//     title: "Testing New To-Do Title",
+//     completed: false
+// }
+// // create a todo list item via POST
+// fetch("https://apis.scrimba.com/jsonplaceholder/todos", {
+//     method: "POST",
+//     // required so server knows how to parse request
+//     headers:{
+//         'Content-Type': 'application/json'
+//     },
+//     body:JSON.stringify(newPostData)
+// })
+// .then(response => response.json())
+// .then(data => {
+//     // will return what you have created as confirmation provided you have included header: content type plus an id database number
+//     console.log("Return data:", data)})
 
     
