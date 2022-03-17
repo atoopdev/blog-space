@@ -44,15 +44,25 @@ document.getElementById("blog-post-creator").addEventListener("submit", event=>{
 
 // POST and PUT requests send BODY (data you want to send to server)
 // must first turn to JSON
+// headers - extra meta info about outgoing request
+    // auth, body, info, client info, etc
+
 const newPostData = {
     title: "Testing New To-Do Title",
     completed: false
 }
+// create a todo list item via POST
 fetch("https://apis.scrimba.com/jsonplaceholder/todos", {
     method: "POST",
+    // required so server knows how to parse request
+    headers:{
+        'Content-Type': 'application/json'
+    },
     body:JSON.stringify(newPostData)
 })
 .then(response => response.json())
 .then(data => {
-    // will return an id number as confirmation
+    // will return what you have created as confirmation provided you have included header: content type plus an id database number
     console.log("Return data:", data)})
+
+    
