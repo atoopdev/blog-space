@@ -1,16 +1,18 @@
 // ------------ pull filler blog post data -------------
+let postsArray = []
+let postsArrHTML =""
 
-// fetch is by default a GET request
-// can specify method by adding parameter
-fetch('https://apis.scrimba.com/jsonplaceholder/posts', {method:"GET"})
-.then(response => response.json())
-.then(data => {
-    console.log(data)
-    // grab first 5 posts
-    const postsArr = data.slice(0,4)
-    console.log(postsArr)
-    let postsArrHTML =""
-    for(let post of postsArr){
+function renderPosts(){
+  if(postsArrHTML && blogData){
+    postsArrHTML = `
+    <h3>${blogData.title}</h3>
+        <p>${blogData.body}</p>
+        <hr/>
+    ` + postsArrHTML
+    document.getElementById("blog-posts-container").innerHTML = postsArrHTML
+  }
+  else if(postsArray){
+    for(let post of postsArray){
         postsArrHTML +=`
         <h3>${post.title}</h3>
         <p>${post.body}</p>
@@ -20,6 +22,20 @@ fetch('https://apis.scrimba.com/jsonplaceholder/posts', {method:"GET"})
     console.log(postsArrHTML)
     // output to webpage
     document.getElementById("blog-posts-container").innerHTML = postsArrHTML
+  }
+}  
+
+
+// fetch is by default a GET request
+// can specify method by adding parameter
+fetch('https://apis.scrimba.com/jsonplaceholder/posts', {method:"GET"})
+.then(response => response.json())
+.then(data => {
+    console.log(data)
+    // grab first 5 posts
+    postsArray = data.slice(0,4)
+    console.log("postsArray post data slice: ", postsArray)
+    renderPosts()
 })
 
 let blogData = {}
@@ -37,16 +53,8 @@ document.getElementById("blog-post-creator").addEventListener("submit", event=>{
         body: blogBody
     }
     console.log("BlogData: ", blogData)
-
-    // grab existing html
-    let prevBlogPostsHTML = document.getElementById("blog-posts-container").innerHTML
-
-    // add new html before old html
-    document.getElementById("blog-posts-container").innerHTML = `
-    <h3>${blogData.title}</h3>
-        <p>${blogData.body}</p>
-        <hr/>
-    ` + prevBlogPostsHTML
+    renderPosts()
+    document.getElementById("blog-post-creator").reset()
 })
 
 // ----------------POST Blog Data from Form Submit -----------------
