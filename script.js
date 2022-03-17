@@ -24,7 +24,7 @@ fetch('https://apis.scrimba.com/jsonplaceholder/posts', {method:"GET"})
 
 let blogData = {}
 
-// ------------------ grab submitted form data ------------------------
+// --------- grab submitted form data and post to web page ------------
 
 document.getElementById("blog-post-creator").addEventListener("submit", event=>{
     event.preventDefault();
@@ -37,6 +37,16 @@ document.getElementById("blog-post-creator").addEventListener("submit", event=>{
         body: blogBody
     }
     console.log("BlogData: ", blogData)
+
+    // grab existing html
+    let prevBlogPostsHTML = document.getElementById("blog-posts-container").innerHTML
+
+    // add new html before old html
+    document.getElementById("blog-posts-container").innerHTML = `
+    <h3>${blogData.title}</h3>
+        <p>${blogData.body}</p>
+        <hr/>
+    ` + prevBlogPostsHTML
 })
 
 // ----------------POST Blog Data from Form Submit -----------------
