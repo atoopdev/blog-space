@@ -104,4 +104,13 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts", {
 
 // REST - a design pattern to provide a standard way for clients and servers to communicate
 
-    
+// test grabbing comments off of blog postID:2
+// fetch("https://apis.scrimba.com/jsonplaceholder/posts/2/comments")
+// .then((response) =>response.json())
+// .then((json) => console.log("Blog comments: ", json))
+
+// query strings - a way to filter results
+// ?xyz=abc
+// baseurl https://mikesbikes.com/api/bikes?type=mountain
+// ?xyz=abc&123=456
+// baseurl https://mikesbikes.com/api/bikes?type=mountain&brand=trek
