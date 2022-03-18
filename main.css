@@ -61,14 +61,14 @@ body {
 
 .container {
   margin: 0 auto;
-  width: 60%;
-  max-width: 800px;
+  width: 80%;
   min-width: 350px;
+  max-width: 1000px;
   padding: 40px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
 }
 #blog-posts-container {
-  /* padding: 40px 10px 10px 10px;
-  width: 80%; */
 }
 
 #blog-posts-form {
@@ -94,4 +94,17 @@ body {
 .btn:focus {
   color: #e63946;
   background-color: #fff;
+}
+
+@media (min-width: 700px) {
+  .container {
+    flex-direction: row;
+  }
+  #blog-posts-container {
+    padding: 0 15px;
+    width: 60%;
+  }
+  #blog-posts-form {
+    width: 35%;
+  }
 }

@@ -102,4 +102,6 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts", {
 //     // will return what you have created as confirmation provided you have included header: content type plus an id database number
 //     console.log("Return data:", data)})
 
+// REST - a design pattern to provide a standard way for clients and servers to communicate
+
     
